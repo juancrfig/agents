@@ -32,6 +32,10 @@ tool_loop_guardrails:
     same_tool_failure: 8
     idempotent_no_progress: 5
 
+display:
+  show_reasoning: false
+  interim_assistant_messages: false
+
 approvals:
   mode: smart
   deny:
