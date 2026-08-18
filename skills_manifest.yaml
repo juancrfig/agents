@@ -66,6 +66,7 @@ agents:
     #   privacy-safe-ai-prototypes, repository-data-hygiene
 
   graphic-designer:
+    name: Venus
     description: Visual & media production (web designs, images, infographics, videos).
       Dedicated Hermes profile — decision taken, not yet provisioned.
     status: planned
