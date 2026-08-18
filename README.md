@@ -7,3 +7,13 @@ It's better to manage context carefully, so I prefer having agents specialized i
 - **Mimir**: Teacher. Provides explanations tailored to my own learning style. It uses a mid-priced (0.5 USD/1M) and smart (+55 *Intelligence Index*) LLM.
 - **Horus**: Scout. Carries out strategic researches on the Internet and provides curated and source-cited reports. Multi-modal retrieval capabilities, latency tolerance, and +47 *Agentic Index*. 
 - **Builder**: Software developer. It encompasses Agent + Harness. It can be invoked via headless sessions or interactively. It needs to run in a coding-specialized harness and use an LLM with +60 *Coding Agent Index*.
+
+
+***
+The canonical configuration file is for [Hermes agent](https://hermes-agent.nousresearch.com/). 
+I try to replicate similar configurations when possible if I use other harnesses. 
+So, what matters is not the actual fields, but what I'm trying to achieve with them:
+
+- Strategic Routing of Models
+- Context Window Management
+- Security Policies 
