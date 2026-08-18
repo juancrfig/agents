@@ -5,14 +5,14 @@ compression:
   enabled: true
   progress_notices: false
   threshold: 0.5
-  threshold_tokens: ***
+  threshold_tokens: 150000
   target_ratio: 0.2
   protect_last_n: 10
   min_tail_user_messages: 1
   max_attempts: 2
-  proactive_prune_tokens: ***
+  proactive_prune_tokens: 48000
   proactive_prune_min_result_chars: 8000
-  proactive_prune_min_reclaim_tokens: ***
+  proactive_prune_min_reclaim_tokens: 4096
   micro_compact: false
   protect_first_n: 3
   abort_on_summary_failure: true
@@ -54,6 +54,56 @@ approvals:
 command_allowlist: []
 
 auxiliary:
+  skills_hub:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
+    reasoning_effort: low
+    timeout: 30
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+
+  kanban_decomposer:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
+    reasoning_effort: low
+    timeout: 120
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+
+  profile_describer:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
+    reasoning_effort: none
+    timeout: 30
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+
+  background_review:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
+    reasoning_effort: medium
+    timeout: 120
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+        
+  compression:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+
+  web_extract:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+
   vision:
     provider: openrouter
     model: google/gemini-2.5-flash
@@ -70,6 +120,20 @@ auxiliary:
     provider: nous
     model: deepseek/deepseek-v4-flash
     timeout: 600
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+
+  mcp:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
+    fallback_chain:
+      - provider: nous
+        model: openai/gpt-5.6-luna
+
+  tts_audio_tags:
+    provider: nous
+    model: deepseek/deepseek-v4-flash
     fallback_chain:
       - provider: nous
         model: openai/gpt-5.6-luna
