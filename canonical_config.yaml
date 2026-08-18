@@ -36,6 +36,20 @@ display:
   show_reasoning: false
   interim_assistant_messages: false
 
+platform_toolsets:
+  cli:
+    - code_execution
+    - cronjob
+    - delegation
+    - file
+    - kanban
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - vision
+    - web
+
 approvals:
   mode: smart
   deny:
