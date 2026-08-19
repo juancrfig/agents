@@ -1,0 +1,1 @@
+- Company workspace memory is machine-local.
