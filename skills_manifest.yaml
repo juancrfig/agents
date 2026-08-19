@@ -1,16 +1,11 @@
-# agents/skills_manifest.yaml
 # Authoritative reference: which bundled Hermes skills each agent must have.
 #
 # Sources:
 #   - bundled skills: Hermes upstream bundle (82 skills), refreshed by `hermes update`
 #     (tracked via `hermes skills opt-in --sync`; visibility controlled by skills.disabled)
-#   - hand-made skills: this repo, ./skills/ (dictionary) — source of truth
+#   - custom skills: this repo: ./skills/ — source of truth
 #   - curator-generated skills: environment-managed (Hermes curator), not listed here
 #
-# Architecture rule: the orchestrator's skill index NEVER carries software-development skills,
-# nor visual/media-production skills. Builders (codex/grok) consume dev skills from their own
-# depots (~/.codex/skills/, ~/.grok/skills/), loaded natively by every builder session;
-# the Graphic Designer agent carries the visual/media set. Per-task briefs travel via AGENTS.md.
 
 version: 1
 updated: 2026-08-18
@@ -41,43 +36,32 @@ creative-design-skills: &design-skills
   # 4-12 GB models). Deferred until a concrete video need exists.
 
 agents:
-  orchestrator:
-    description: Desktop Hermes session (default profile). Carries NO software-development skills.
-    bundled:
-      - codex                 # delegate coding to Codex CLI
-      - hermes-agent          # operating manual for Hermes itself
-      - computer-use          # desktop automation
-      - excalidraw            # diagrams
-      - gif-search            # gif lookup
-      - obsidian              # vault notes (Zettelkasten)
-      - youtube-content       # video transcripts
-      - sdlc-review           # kanban review gate
-      - merge-reconciler      # arbitration for parallel agent work
-      - session-librarian     # session library management
-      - xlsx                  # Excel workbooks
-      - pdf                   # PDF create/read/merge
-      - ocr-and-documents     # text extraction from scans
-      - nano-pdf              # PDF text editing
-      - sketch                # throwaway HTML mockups
-      - humanizer             # de-AI writing edits (boilerplate redaction)
-    # hand-made (./skills/): dictionary
-    # curator-generated: persistent-ai-conversations, hermes-canonical-config-review,
-    #   hermes-skill-lifecycle, evidence-grounded-evaluation, external-system-validation,
-    #   privacy-safe-ai-prototypes, repository-data-hygiene
-
-  graphic-designer:
-    name: Venus
-    description: Visual & media production (web designs, images, infographics, videos).
-      Dedicated Hermes profile — decision taken, not yet provisioned.
-    status: planned
-    skills: *design-skills
-
-  builder-codex:
-    description: Headless codex CLI session (codex exec). Consumes skills from its depot.
-    depot: "~/.codex/skills/"
-    skills: *dev-skills
-
-  builder-grok:
-    description: Headless grok CLI session (grok -p). Consumes skills from its depot. Install pending.
-    depot: "~/.grok/skills/"
-    skills: *dev-skills
+  router:
+    skills:
+      bundled:
+        - codex                 # delegate coding to Codex CLI
+        - hermes-agent          # operating manual for Hermes itself
+        - computer-use          # desktop automation
+        - excalidraw            # diagrams
+        - gif-search            # gif lookup
+        - obsidian              # vault notes (Zettelkasten)
+        - youtube-content       # video transcripts
+        - sdlc-review           # kanban review gate
+        - merge-reconciler      # arbitration for parallel agent work
+        - session-librarian     # session library management
+        - xlsx                  # Excel workbooks
+        - pdf                   # PDF create/read/merge
+        - ocr-and-documents     # text extraction from scans
+        - nano-pdf              # PDF text editing
+        - sketch                # throwaway HTML mockups
+        - humanizer             # de-AI writing edits 
+  artist:
+    skills: 
+      - *design-skills
+  builder:
+    skills: 
+      - *dev-skills
+  teacher:
+    skills:
+      - teach                 
+      - vocabulary
