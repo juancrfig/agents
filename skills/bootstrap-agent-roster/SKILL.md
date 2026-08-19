@@ -47,7 +47,7 @@ python3 ~/Projects/agents/skills/bootstrap-agent-roster/scripts/bootstrap_roster
 | Artist | `venus` | `openai/gpt-5.6-luna` | `media/venus.png` | — |
 | Builder | none (external harnesses) | — | `media/builder.png` (manifest only) | — |
 
-Skill counts per agent (enabled): hermes 18 (17 bundled + 1 custom), mimir 14 (11 bundled + 3 custom), horus 15, venus 16, builder 9 (manifest only). Source: `skills_manifest.yaml`.
+Skill counts per agent: hermes 18 per manifest but **17 visible** in `skills list` (sdlc-review is kanban-gated and never lists), mimir 14 (11 bundled + 3 custom), horus 15, venus 16, builder 9 (manifest only). Source: `skills_manifest.yaml`.
 
 ## Procedure
 
@@ -77,8 +77,9 @@ Skill counts per agent (enabled): hermes 18 (17 bundled + 1 custom), mimir 14 (1
 
 ```bash
 hermes profile list                                   # hermes (default) + mimir/horus/venus
-hermes -p <name> skills list | grep -c '│ enabled '   # counts per Quick Reference
+hermes -p <name> skills list | grep -c '│ enabled '   # hermes 17 visible, mimir 14, horus 15, venus 16
 ls ~/.hermes/assets/avatar.png ~/.hermes/profiles/{mimir,horus,venus}/assets/avatar.png
+ls ~/.hermes/skills/devops/sdlc-review/SKILL.md        # kanban-gated: present but never lists
 python3 -c "import yaml;c=yaml.safe_load(open('$HOME/.hermes/profiles/mimir/config.yaml'));print(c['display'])"
 ```
 
