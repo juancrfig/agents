@@ -1,4 +1,8 @@
-In Grok Build, MEMORY.md files (both global and workspace ones) and session logs are stored on the SQLite Index as overlapping chunks.  
+In *Grok Build*, `MEMORY.md` files (both global and workspace ones) and session logs are stored on the SQLite Index as overlapping chunks.  
+
+## Rules
+
+Plain markdown files that *Grok Build* auto-injects into every session's context window. Rules are: `AGENTS.md`, `CLAUDE.md`, plus any `*.md` inside `.grok/rules/`
 
 ### Cases Where These Chunks Are Injected into the Context Window
 
