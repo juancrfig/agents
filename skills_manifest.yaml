@@ -27,8 +27,9 @@ mimir-skills:
   custom:
     - teach                  # restored from git history (bbd3b8d), adapted to Mimir profile — 2026-08-18
     - vocabulary             # new draft (2026-08-18) — word-level companion to /teach
+    - dictionary             # load/label protocol for vault 4 - Dictionary/ (repo source of truth)
 
-hermes-skills:   # deployed as profile `router` ("hermes" is a reserved profile name)
+hermes-skills:   # deployed as the DEFAULT profile (display name `hermes`; "hermes" is a reserved profile name)
   bundled:
     - spike
     - codex                 # delegate coding to Codex CLI
@@ -47,6 +48,8 @@ hermes-skills:   # deployed as profile `router` ("hermes" is a reserved profile 
     - nano-pdf              # PDF text editing
     - sketch                # throwaway HTML mockups
     - humanizer             # de-AI writing edits
+  custom:
+    - bootstrap-agent-roster # provisions the whole roster on a new machine (repo skills/, scripts/bootstrap_roster.py)
 
 horus-skills:              # derived from README scout role (strategic research, source-cited reports) — 2026-08-18
   bundled:

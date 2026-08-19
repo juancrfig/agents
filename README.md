@@ -29,19 +29,18 @@ So, what matters is not the actual fields, but what I'm trying to achieve with t
 
 ## Deployment
 
-Each agent is a Hermes profile (see `skills_manifest.yaml` for the authoritative skill set per agent):
+Each agent is a Hermes profile (see `skills_manifest.yaml` for the authoritative skill set per agent). The Router is the **default** profile (display name `hermes` — `hermes` itself is a reserved profile name). **Builder has no Hermes profile**: it is the Grok Build & Codex harnesses, listed in the manifest for reference only.
 
 | Profile | Role | Model | Skills (bundled + custom) |
 |---|---|---|---|
-| `router` | Hermes — Router | `deepseek/deepseek-v4-flash` | 17 bundled |
+| default (`hermes`) | Hermes — Router | `deepseek/deepseek-v4-flash` | 17 bundled + `bootstrap-agent-roster` |
 | `mimir` | Teacher | `deepseek/deepseek-v4-pro` | 11 bundled + `dictionary`, `teach`, `vocabulary` |
 | `horus` | Scout | `google/gemini-3.7-flash` | 15 bundled |
 | `venus` | Artist | `openai/gpt-5.6-luna` | 16 bundled |
-| `builder` | Software Developer | `x-ai/grok-4.6` | 9 bundled |
+| `builder` | Software Developer | external (Grok Build & Codex) | 9 bundled (manifest only, no profile) |
 
 Notes:
 
-- `hermes` is a reserved profile name (collides with the CLI), so the Router profile is named `router`.
-- Avatars live at `~/.hermes/profiles/<name>/assets/avatar.png`; sources are in `media/`.
+- Avatars live at `~/.hermes/profiles/<name>/assets/avatar.png` (default: `~/.hermes/assets/avatar.png`); sources are in `media/`.
 - `Builder`'s face (`media/builder.png`) is a generated placeholder — swap the file to replace it.
-- Per-profile `config.yaml` is generated from `canonical_config.yaml` + per-role model/toolsets/skills (regenerate with `/tmp/gen_agent_configs.py`).
+- New machines: run `skills/bootstrap-agent-roster/scripts/bootstrap_roster.py` to provision the whole roster (canonical config + hiding thinking + models + toolsets + skills + avatars).
