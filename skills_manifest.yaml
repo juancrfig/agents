@@ -1,44 +1,36 @@
-# Authoritative reference: which bundled Hermes skills each agent must have.
+# Authoritative reference: which skills each agent must have. 
+# Important to state that this file also conveys an intent of capabilities that each agent should have.
 #
 # Sources:
 #   - bundled skills: Hermes upstream bundle (82 skills), refreshed by `hermes update`
 #     (tracked via `hermes skills opt-in --sync`; visibility controlled by skills.disabled)
 #   - custom skills: this repo: ./skills/ — source of truth
 #   - curator-generated skills: environment-managed (Hermes curator), not listed here
-#
+# Curator generated skills won't appear here until they are polished and approved as official
 
 version: 1
 updated: 2026-08-18
 
-# The software-development set — builders only. Installed into each builder's depot.
-software-development-skills: &dev-skills
-  - test-driven-development
-  - systematic-debugging
-  - python-debugpy
-  - node-inspect-debugger
-  - dogfood
-  - simplify-code
-  - spike
-  - plan
-  - requesting-code-review
-  - hermes-agent-skill-authoring
-  - inspecting-hermes-desktop-dom
+mimir-skills: 
+  bundled:
+    - spike
+    - codex
+    - hermes-agent
+    - excalidraw
+    - git-search
+    - obsidian
+    - youtube-content
+    - session-librarian
+    - ocr-and-documents
+    - sketch
+    - llm-wiki
+  custom:
+    - teach
+    - vocabulary
 
-# The visual/media production set — the Graphic Designer agent only.
-creative-design-skills: &design-skills
-  - claude-design           # one-off HTML artifacts (landing pages, decks, prototypes)
-  - popular-web-designs     # 54 real design systems (Stripe, Linear, Vercel...) as reference
-  - design-md               # DESIGN.md token spec authoring/validation (WCAG)
-  - baoyu-infographic       # infographics: 21 layouts x 21 styles
-  - p5js                    # generative art, interactive canvas, data viz
-  - manim-video             # 3Blue1Brown-style animated explainers (algorithm walkthroughs)
-  # comfyui (diffusion image/video/audio) — PHASE 2: heavy setup (local GPU or cloud,
-  # 4-12 GB models). Deferred until a concrete video need exists.
-
-agents:
-  router:
-    skills:
-      bundled:
+hermes-skills:
+  bundled:
+        - spike
         - codex                 # delegate coding to Codex CLI
         - hermes-agent          # operating manual for Hermes itself
         - computer-use          # desktop automation
@@ -55,13 +47,34 @@ agents:
         - nano-pdf              # PDF text editing
         - sketch                # throwaway HTML mockups
         - humanizer             # de-AI writing edits 
-  artist:
-    skills: 
-      - *design-skills
-  builder:
-    skills: 
-      - *dev-skills
-  teacher:
-    skills:
-      - teach                 
-      - vocabulary
+        
+venus-skills:
+  bundled:
+    - spike
+    - codex
+    - hermes-agent
+    - excalidraw
+    - git-search
+    - youtube-content
+    - llm-wiki
+    - session-librarian
+    - sketch
+    - claude-design          # one-off HTML artifacts (landing pages, decks, prototypes)
+    - popular-web-designs    # 54 real design systems (Stripe, Linear, Vercel...) as reference
+    - design-md              # DESIGN.md token spec authoring/validation (WCAG)
+    - baoyu-infographic
+    - p5js                   # generative art, interactive canvas, data viz
+    - manim-video            # 3Blue1Brown-style animated explainers (algorithm walkthroughs)
+    - comfyui                # (diffusion image/video/audio) heavy setup (local GPU or cloud, # 4-12 GB models).
+
+builder-skills:
+  bundled:
+    - hermes-agent-skill-authoring
+    - inspecting-hermes-desktop-dom   
+    - test-driven-development
+    - systematic-debugging
+    - python-debugpy
+    - node-inspect-debugger
+    - dogfood
+    - simplify-code
+    - requesting-code-review
