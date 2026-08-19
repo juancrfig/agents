@@ -5,10 +5,10 @@ It's better to manage context carefully, so I prefer having agents specialized i
 
 | Agent | Face |
 |---|---|
-| **Hermes** — Router | <img src="hermes.png" width="96" alt="Hermes"> |
-| **Mimir** — Teacher | <img src="mimir.png" width="96" alt="Mimir"> |
-| **Horus** — Scout | <img src="horus.png" width="96" alt="Horus"> |
-| **Venus** — Graphic Designer | <img src="venus.png" width="96" alt="Venus"> |
+| **Hermes** — Router | <img src="media/hermes.png" width="96" alt="Hermes"> |
+| **Mimir** — Teacher | <img src="media/mimir.png" width="96" alt="Mimir"> |
+| **Horus** — Scout | <img src="media/horus.png" width="96" alt="Horus"> |
+| **Venus** — Graphic Designer | <img src="media/venus.png" width="96" alt="Venus"> |
 
 - **Hermes**: Router. Quick answers and to delegate work to agents better suit for it. It uses a cheap (0.05 USD/1M), smart-enough (+50 *Intelligence Index*), and low latency LLM (+160 tokens/s). 
 - **Mimir**: Teacher. Provides explanations tailored to my own learning style. It uses a mid-priced (0.5 USD/1M) and smart (+55 *Intelligence Index*) LLM.

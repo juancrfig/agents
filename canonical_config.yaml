@@ -196,6 +196,6 @@ curator:
   stale_after_days: 30
   archive_after_days: 90
   consolidate: true
-  prune_builtins: true
+  prune_builtins: false
 
 timezone: America/Bogota

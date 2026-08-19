@@ -4,7 +4,7 @@
 # Sources:
 #   - bundled skills: Hermes upstream bundle (82 skills), refreshed by `hermes update`
 #     (tracked via `hermes skills opt-in --sync`; visibility controlled by skills.disabled)
-#   - hand-made skills: this repo, ./skills/ (dictionary, teach, diagnosing-bugs) — source of truth
+#   - hand-made skills: this repo, ./skills/ (dictionary) — source of truth
 #   - curator-generated skills: environment-managed (Hermes curator), not listed here
 #
 # Architecture rule: the orchestrator's skill index NEVER carries software-development skills,
@@ -60,7 +60,7 @@ agents:
       - nano-pdf              # PDF text editing
       - sketch                # throwaway HTML mockups
       - humanizer             # de-AI writing edits (boilerplate redaction)
-    # hand-made (./skills/): dictionary, teach, diagnosing-bugs
+    # hand-made (./skills/): dictionary
     # curator-generated: persistent-ai-conversations, hermes-canonical-config-review,
     #   hermes-skill-lifecycle, evidence-grounded-evaluation, external-system-validation,
     #   privacy-safe-ai-prototypes, repository-data-hygiene
