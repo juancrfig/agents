@@ -153,10 +153,10 @@ def deploy_avatar(repo, agent, dry):
     home = profile_home("default" if agent == "hermes" else agent)
     src = repo / "media" / PIC[agent]
     dest = home / "assets" / "avatar.png"
-    dest.parent.mkdir(parents=True, exist_ok=True)
     if dry:
         log(f"  [dry-run] would copy {src} -> {dest}")
         return
+    dest.parent.mkdir(parents=True, exist_ok=True)
     try:
         from PIL import Image
         try:

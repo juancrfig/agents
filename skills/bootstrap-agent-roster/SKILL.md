@@ -47,7 +47,7 @@ python3 ~/Projects/agents/skills/bootstrap-agent-roster/scripts/bootstrap_roster
 | Artist | `venus` | `openai/gpt-5.6-luna` | `media/venus.png` | — |
 | Builder | none (external harnesses) | — | `media/builder.png` (manifest only) | — |
 
-Skill counts per agent (enabled): hermes 17, mimir 14 (11 bundled + 3 custom), horus 15, venus 16, builder 9 (manifest only). Source: `skills_manifest.yaml`.
+Skill counts per agent (enabled): hermes 18 (17 bundled + 1 custom), mimir 14 (11 bundled + 3 custom), horus 15, venus 16, builder 9 (manifest only). Source: `skills_manifest.yaml`.
 
 ## Procedure
 
