@@ -11,7 +11,7 @@ It's better to manage context carefully, so I prefer having agents specialized i
 | **Builder** — Developer | <img src="media/builder.png" width="96" alt="Builder"> |
 | **Venus** — Artist | <img src="media/venus.png" width="96" alt="Venus"> |
 
-- **Hermes**: Router. Quick answers and to delegate work to agents better suit for it. It uses a cheap (0.05 USD/1M), smart-enough (+50 *Intelligence Index*), and low latency LLM (+160 tokens/s). 
+- **Hermes**: Router. Quick answers and delegation to agents better suit. It uses a cheap (0.05 USD/1M), smart-enough (+50 *Intelligence Index*), and low latency LLM (+160 tokens/s). 
 - **Mimir**: Teacher. Provides explanations tailored to my own learning style. It uses a mid-priced (0.5 USD/1M) and smart (+55 *Intelligence Index*) LLM.
 - **Horus**: Scout. Carries out strategic researches on the Internet and provides curated and source-cited reports. Multi-modal retrieval capabilities, latency tolerance, and +47 *Agentic Index*. 
 - **Builder (Grok Build & Codex)**: Software developer. It encompasses Agent + Harness. It can be invoked via headless sessions or interactively. It needs to run in a coding-specialized harness and use an LLM with +60 *Coding Agent Index*.
