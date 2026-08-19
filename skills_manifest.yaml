@@ -25,10 +25,10 @@ mimir-skills:
     - sketch
     - llm-wiki
   custom:
-    - teach                  # planned: to be added to ./skills/
-    - vocabulary             # planned: to be added to ./skills/
+    - teach                  # restored from git history (bbd3b8d), adapted to Mimir profile — 2026-08-18
+    - vocabulary             # new draft (2026-08-18) — word-level companion to /teach
 
-hermes-skills:
+hermes-skills:   # deployed as profile `router` ("hermes" is a reserved profile name)
   bundled:
     - spike
     - codex                 # delegate coding to Codex CLI
@@ -47,6 +47,24 @@ hermes-skills:
     - nano-pdf              # PDF text editing
     - sketch                # throwaway HTML mockups
     - humanizer             # de-AI writing edits
+
+horus-skills:              # derived from README scout role (strategic research, source-cited reports) — 2026-08-18
+  bundled:
+    - spike
+    - hermes-agent
+    - session-librarian
+    - youtube-content       # video transcripts
+    - ocr-and-documents     # text extraction from scans
+    - pdf                   # PDF create/read/merge
+    - nano-pdf              # PDF text editing
+    - gif-search            # gif lookup
+    - llm-wiki
+    - arxiv                 # papers
+    - grounded-citations    # source-cited reporting discipline
+    - research-paper-writing
+    - blogwatcher           # ongoing sources
+    - xurl                  # link handling
+    - blocked-page-recovery # paywalls/captchas
 
 venus-skills:
   bundled:

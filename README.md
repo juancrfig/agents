@@ -8,6 +8,7 @@ It's better to manage context carefully, so I prefer having agents specialized i
 | **Hermes** — Router | <img src="media/hermes.png" width="96" alt="Hermes"> |
 | **Mimir** — Teacher | <img src="media/mimir.png" width="96" alt="Mimir"> |
 | **Horus** — Scout | <img src="media/horus.png" width="96" alt="Horus"> |
+| **Builder** — Software Developer | <img src="media/builder.png" width="96" alt="Builder"> |
 | **Venus** — Artist | <img src="media/venus.png" width="96" alt="Venus"> |
 
 - **Hermes**: Router. Quick answers and to delegate work to agents better suit for it. It uses a cheap (0.05 USD/1M), smart-enough (+50 *Intelligence Index*), and low latency LLM (+160 tokens/s). 
@@ -25,3 +26,22 @@ So, what matters is not the actual fields, but what I'm trying to achieve with t
 - Strategic Routing of Models
 - Context Window Management
 - Security Policies 
+
+## Deployment
+
+Each agent is a Hermes profile (see `skills_manifest.yaml` for the authoritative skill set per agent):
+
+| Profile | Role | Model | Skills (bundled + custom) |
+|---|---|---|---|
+| `router` | Hermes — Router | `deepseek/deepseek-v4-flash` | 17 bundled |
+| `mimir` | Teacher | `deepseek/deepseek-v4-pro` | 11 bundled + `dictionary`, `teach`, `vocabulary` |
+| `horus` | Scout | `google/gemini-3.7-flash` | 15 bundled |
+| `venus` | Artist | `openai/gpt-5.6-luna` | 16 bundled |
+| `builder` | Software Developer | `x-ai/grok-4.6` | 9 bundled |
+
+Notes:
+
+- `hermes` is a reserved profile name (collides with the CLI), so the Router profile is named `router`.
+- Avatars live at `~/.hermes/profiles/<name>/assets/avatar.png`; sources are in `media/`.
+- `Builder`'s face (`media/builder.png`) is a generated placeholder — swap the file to replace it.
+- Per-profile `config.yaml` is generated from `canonical_config.yaml` + per-role model/toolsets/skills (regenerate with `/tmp/gen_agent_configs.py`).
