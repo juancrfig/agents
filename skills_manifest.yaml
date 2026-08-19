@@ -1,4 +1,4 @@
-# Authoritative reference: which skills each agent must have. 
+# Authoritative reference: which skills each agent must have.
 # Important to state that this file also conveys an intent of capabilities that each agent should have.
 #
 # Sources:
@@ -11,13 +11,13 @@
 version: 1
 updated: 2026-08-18
 
-mimir-skills: 
+mimir-skills:
   bundled:
     - spike
     - codex
     - hermes-agent
     - excalidraw
-    - git-search
+    - gif-search
     - obsidian
     - youtube-content
     - session-librarian
@@ -25,36 +25,36 @@ mimir-skills:
     - sketch
     - llm-wiki
   custom:
-    - teach
-    - vocabulary
+    - teach                  # planned: to be added to ./skills/
+    - vocabulary             # planned: to be added to ./skills/
 
 hermes-skills:
   bundled:
-        - spike
-        - codex                 # delegate coding to Codex CLI
-        - hermes-agent          # operating manual for Hermes itself
-        - computer-use          # desktop automation
-        - excalidraw            # diagrams
-        - gif-search            # gif lookup
-        - obsidian              # vault notes (Zettelkasten)
-        - youtube-content       # video transcripts
-        - sdlc-review           # kanban review gate
-        - merge-reconciler      # arbitration for parallel agent work
-        - session-librarian     # session library management
-        - xlsx                  # Excel workbooks
-        - pdf                   # PDF create/read/merge
-        - ocr-and-documents     # text extraction from scans
-        - nano-pdf              # PDF text editing
-        - sketch                # throwaway HTML mockups
-        - humanizer             # de-AI writing edits 
-        
+    - spike
+    - codex                 # delegate coding to Codex CLI
+    - hermes-agent          # operating manual for Hermes itself
+    - computer-use          # desktop automation
+    - excalidraw            # diagrams
+    - gif-search            # gif lookup
+    - obsidian              # vault notes (Zettelkasten)
+    - youtube-content       # video transcripts
+    - sdlc-review           # kanban review gate — official-optional: backfill via `hermes skills repair-official`
+    - merge-reconciler      # arbitration for parallel agent work
+    - session-librarian     # session library management
+    - xlsx                  # Excel workbooks
+    - pdf                   # PDF create/read/merge
+    - ocr-and-documents     # text extraction from scans
+    - nano-pdf              # PDF text editing
+    - sketch                # throwaway HTML mockups
+    - humanizer             # de-AI writing edits
+
 venus-skills:
   bundled:
     - spike
     - codex
     - hermes-agent
     - excalidraw
-    - git-search
+    - gif-search
     - youtube-content
     - llm-wiki
     - session-librarian
@@ -65,15 +65,15 @@ venus-skills:
     - baoyu-infographic
     - p5js                   # generative art, interactive canvas, data viz
     - manim-video            # 3Blue1Brown-style animated explainers (algorithm walkthroughs)
-    - comfyui                # (diffusion image/video/audio) heavy setup (local GPU or cloud, # 4-12 GB models).
+    - comfyui                # diffusion image/video/audio; heavy setup (local GPU or cloud, 4-12 GB models)
 
 builder-skills:
   bundled:
     - hermes-agent-skill-authoring
-    - inspecting-hermes-desktop-dom   
+    - inspecting-hermes-desktop-dom
     - test-driven-development
     - systematic-debugging
-    - python-debugpy
+    - python-debugpy         # linux/macos only — inert on Windows (platform-filtered from `hermes skills list`)
     - node-inspect-debugger
     - dogfood
     - simplify-code
