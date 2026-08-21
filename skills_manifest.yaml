@@ -33,7 +33,6 @@ hermes-skills:   # deployed as the DEFAULT profile (display name `hermes`; "herm
   rules:
     - builder/rules/002-communication-style.md
   bundled:
-    - memory-triage        # canonical memory curation gate for every agent
     - spike
     - codex                 # delegate coding to Codex CLI
     - hermes-agent          # operating manual for Hermes itself
@@ -51,10 +50,11 @@ hermes-skills:   # deployed as the DEFAULT profile (display name `hermes`; "herm
     - nano-pdf              # PDF text editing
     - sketch                # throwaway HTML mockups
     - humanizer             # de-AI writing edits
+  custom:
+    - memory-triage        # canonical memory curation gate for every agent
 
 horus-skills:          
   bundled:
-    - memory-triage        # canonical memory curation gate for every agent
     - spike
     - hermes-agent
     - session-librarian
@@ -70,11 +70,11 @@ horus-skills:
     - xurl                  # link handling
     - blocked-page-recovery # paywalls/captchas
   custom:
+    - memory-triage        # canonical memory curation gate for every agent
     - research
 
 venus-skills:
   bundled:
-    - memory-triage        # canonical memory curation gate for every agent
     - spike
     - codex
     - hermes-agent
@@ -91,10 +91,11 @@ venus-skills:
     - p5js                   # generative art, interactive canvas, data viz
     - manim-video            # 3Blue1Brown-style animated explainers (algorithm walkthroughs)
     - comfyui                # diffusion image/video/audio; heavy setup (local GPU or cloud, 4-12 GB models)
+  custom:
+    - memory-triage        # canonical memory curation gate for every agent
 
 builder-skills:
   bundled:
-    - memory-triage        # canonical memory curation gate for every agent
     - hermes-agent-skill-authoring
     - inspecting-hermes-desktop-dom
     - test-driven-development
@@ -104,3 +105,5 @@ builder-skills:
     - dogfood
     - simplify-code
     - requesting-code-review
+  custom:
+    - memory-triage        # canonical memory curation gate for every agent
