@@ -1,10 +1,6 @@
 ---
 name: memory-triage
 description: "Use when Hermes identifies a possible persistent memory."
-version: 1.0.0
-author: Hermes Agent
-license: MIT
-platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [memory, pending, approval, triage, dedupe, handoff]
@@ -44,7 +40,8 @@ clustering it into verdicts, and producing a review handoff doc the user can act
 5. **Correct routing.** Distinguish facts about the user from instructions about Hermes behavior. A desired agent behavior, tracker outcome, parsing rule, or task constraint is not a `USER.md` fact merely because it arose from a user request. Route reusable procedures to skills, project facts to project context, and job-specific instructions to the relevant cron prompt.
 6. **Operational specificity.** Reject vague personality or style labels such as “uses slang,” “uses emojis,” or “speaks Spanglish” when they leave context, intent, or usage conditions unspecified. A general user fact must still be concrete enough to avoid inventing details about the user.
 7. **Flag genuine conflicts, don't silently resolve.** Same fact stated two ways across origins (e.g. “currently studying book X” vs “paused book X”) → report “cannot decide” and let the user choose.
-8. **Verdict table.** Per item: ✅ approve / ✏️ modify / ⏭ skip-dupe / ⏭ skip-superseded / 🔀 reroute / ⚠ cannot decide. Give a per-cluster net count only after counting operations consistently.
+8. **Reject negated-deterministic clutter.** A fact stating a deterministic thing (a function name, a command, a path, and so) follwed by a statement of what it is NOT is redundant noise. If the canonical value or name is stated, negations add nothing. Future readers either trust the stated value or re-derive it.  
+9. **Verdict table.** Per item: ✅ approve / ✏️ modify / ⏭ skip-dupe / ⏭ skip-superseded / 🔀 reroute / ⚠ cannot decide. Give a per-cluster net count only after counting operations consistently.
 
 ## Handoff doc
 
