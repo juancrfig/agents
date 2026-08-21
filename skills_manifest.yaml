@@ -25,11 +25,15 @@ mimir-skills:
     - sketch
     - llm-wiki
   custom:
-    - teach                 
-    - vocabulary    
+    - memory-triage
+    - teach
+    - vocabulary
 
 hermes-skills:   # deployed as the DEFAULT profile (display name `hermes`; "hermes" is a reserved profile name)
+  rules:
+    - builder/rules/002-communication-style.md
   bundled:
+    - memory-triage        # canonical memory curation gate for every agent
     - spike
     - codex                 # delegate coding to Codex CLI
     - hermes-agent          # operating manual for Hermes itself
@@ -50,6 +54,7 @@ hermes-skills:   # deployed as the DEFAULT profile (display name `hermes`; "herm
 
 horus-skills:          
   bundled:
+    - memory-triage        # canonical memory curation gate for every agent
     - spike
     - hermes-agent
     - session-librarian
@@ -64,9 +69,12 @@ horus-skills:
     - blogwatcher           # ongoing sources
     - xurl                  # link handling
     - blocked-page-recovery # paywalls/captchas
+  custom:
+    - research
 
 venus-skills:
   bundled:
+    - memory-triage        # canonical memory curation gate for every agent
     - spike
     - codex
     - hermes-agent
@@ -86,6 +94,7 @@ venus-skills:
 
 builder-skills:
   bundled:
+    - memory-triage        # canonical memory curation gate for every agent
     - hermes-agent-skill-authoring
     - inspecting-hermes-desktop-dom
     - test-driven-development
