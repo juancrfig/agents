@@ -16,6 +16,8 @@ What it does:
   5. deploys manifest custom skills (repo skills/ -> <home>/skills/learning/).
   6. backfills the sdlc-review skill for the Router if missing (kanban
      review gate; environment-gated to kanban lanes).
+  7. deploys the shared USER.md to every Hermes profile and the Router's
+     canonical SOUL.md and MEMORY.md from repo hermes/.
 
 Builder intentionally gets NO Hermes profile: it is the Grok Build & Codex
 harnesses. The manifest still lists builder-skills for reference.
@@ -188,6 +190,24 @@ def deploy_custom_skills(repo, agent, spec, dry):
         log(f"  custom skill {name} -> {dest}")
 
 
+def deploy_context_files(repo, agent, dry):
+    """Deploy shared user context and Router-specific soul/memory files."""
+    home = profile_home("default" if agent == "hermes" else agent)
+    copies = [(repo / "USER.md", home / "memories" / "USER.md")]
+    if agent == "hermes":
+        copies.extend([
+            (repo / "hermes" / "SOUL.md", home / "SOUL.md"),
+            (repo / "hermes" / "MEMORY.md", home / "memories" / "MEMORY.md"),
+        ])
+    for src, dest in copies:
+        if dry:
+            log(f"  [dry-run] would copy {src} -> {dest}")
+            continue
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+        log(f"  context {src.name} -> {dest}")
+
+
 def ensure_sdlc_review(home, dry):
     """Backfill sdlc-review (kanban review gate) for the Router."""
     if "sdlc-review" in installed_skill_names(home):
@@ -221,7 +241,8 @@ def main():
     args = ap.parse_args()
 
     repo = Path(args.repo).expanduser()
-    for required in ("canonical_config.yaml", "skills_manifest.yaml", "media"):
+    for required in ("canonical_config.yaml", "skills_manifest.yaml", "media",
+                     "USER.md", "hermes/SOUL.md", "hermes/MEMORY.md"):
         if not (repo / required).exists():
             print(f"error: agents repo not found at {repo} (missing {required})",
                   file=sys.stderr)
@@ -266,6 +287,7 @@ def main():
         write_config(home, cfg, dry)
         deploy_avatar(repo, agent, dry)
         deploy_custom_skills(repo, agent, spec, dry)
+        deploy_context_files(repo, agent, dry)
         if agent == "hermes":
             ensure_sdlc_review(home, dry)
 
