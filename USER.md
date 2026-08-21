@@ -1,9 +1,3 @@
-Software engineer whose work codebase enforces a fixed Repository/Service/Provider architecture; has no authority to change the system design.
-§
-AI agents are the primary interface to the work codebase. Unexpected behavior in AI-generated PRs is a central pain point motivating study of deep code comprehension versus code-unread agentic workflows.
-§
-Studies software-design fundamentals.
-§
-Prefers every keyboard permanently fixed to the US layout, with no automatic LATAM or USB-layout switching.
+User's second-brain is at $VAULT-PATH. Go there when more information is needed about the user's learning journey, life history, or life statistics such as gym and money.
 §
 Prefers deterministic verification over assumed completion. For multi-step or bootstrap work, values idempotent scripts, dry-runs, rollback procedures, and machine-checkable evidence; “done” must be evidenced.
